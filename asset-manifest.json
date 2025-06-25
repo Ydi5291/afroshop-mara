@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/afroshop-mara/static/css/main.71b5dd9f.css",
+    "main.js": "/afroshop-mara/static/js/main.b1241cf9.js",
+    "static/js/453.bdb913de.chunk.js": "/afroshop-mara/static/js/453.bdb913de.chunk.js",
+    "static/media/Kerastase.png": "/afroshop-mara/static/media/Kerastase.8a1cb0908785b7c2e91b.png",
+    "static/media/Körperpflege.png": "/afroshop-mara/static/media/Körperpflege.b2518919981c5debc1f4.png",
+    "static/media/NIDO.jpg": "/afroshop-mara/static/media/NIDO.60efc3eff0b4e4b1f94a.jpg",
+    "static/media/Chips2.jpg": "/afroshop-mara/static/media/Chips2.7aab4c1d1d53e508ccde.jpg",
+    "static/media/Afroshop-mara1.jpg": "/afroshop-mara/static/media/Afroshop-mara1.cf36f0228509a69d613e.jpg",
+    "static/media/Ignam.jpg": "/afroshop-mara/static/media/Ignam.97a1653320d89a363ccf.jpg",
+    "static/media/Avocados.jpg": "/afroshop-mara/static/media/Avocados.08d4b4e2588bcde2e308.jpg",
+    "static/media/Getränke.jpg": "/afroshop-mara/static/media/Getränke.a72aedf2aad7235b7ec9.jpg",
+    "static/media/Guinness.jpg": "/afroshop-mara/static/media/Guinness.37aaadd4b089aba6a13e.jpg",
+    "static/media/Schill.jpg": "/afroshop-mara/static/media/Schill.1cd147ff436c3df594b2.jpg",
+    "static/media/Alloco2.jpg": "/afroshop-mara/static/media/Alloco2.41e1a5b293f29e0c8552.jpg",
+    "static/media/Zitronen.jpg": "/afroshop-mara/static/media/Zitronen.83375d792e309478feee.jpg",
+    "static/media/Bissap.png": "/afroshop-mara/static/media/Bissap.3f47f0cec996e094304d.png",
+    "static/media/Kosmetik.jpg": "/afroshop-mara/static/media/Kosmetik.7343c04c15fc3594ca20.jpg",
+    "static/media/vitamalt.jpg": "/afroshop-mara/static/media/vitamalt.e9ca13ac7e8968155e7d.jpg",
+    "static/media/Vimto.jpg": "/afroshop-mara/static/media/Vimto.0272fc4ec6a442e988a2.jpg",
+    "static/media/Black-soap.webp": "/afroshop-mara/static/media/Black-soap.aed57257a1091c134f9d.webp",
+    "index.html": "/afroshop-mara/index.html",
+    "main.71b5dd9f.css.map": "/afroshop-mara/static/css/main.71b5dd9f.css.map",
+    "main.b1241cf9.js.map": "/afroshop-mara/static/js/main.b1241cf9.js.map",
+    "453.bdb913de.chunk.js.map": "/afroshop-mara/static/js/453.bdb913de.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71b5dd9f.css",
+    "static/js/main.b1241cf9.js"
+  ]
+}
