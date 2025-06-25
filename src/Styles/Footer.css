@@ -1,0 +1,16 @@
+.App-footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .App-footer {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}   

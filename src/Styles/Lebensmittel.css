@@ -1,0 +1,82 @@
+.lebensmittel-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.lebensmittel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  padding: 1.5rem 2rem;
+  width: 220px;
+}
+
+.lebensmittel-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.lebensmittel-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.lebensmittel-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.lebensmittel-price {
+  color: #ffb347;
+  font-weight: bold;
+  font-size: 1rem;
+}
+-------in den Warenkorb-------
+/* Style du bouton "In den Warenkorb" */
+.add-to-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #ffb347 60%, #e67e22 100%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(230, 126, 34, 0.10);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  outline: none;
+}
+
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus {
+  background: linear-gradient(90deg, #e67e22 60%, #47ff94 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(230, 126, 34, 0.18);
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .add-to-cart-btn {
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+}
