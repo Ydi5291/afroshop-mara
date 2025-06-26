@@ -1,6 +1,8 @@
 .kosmetik-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 2rem;
   margin: 2rem 0;
@@ -17,6 +19,19 @@
   width: 220px;
 }
 
+/* Responsive : 2 colonnes sur mobile */
+@media (max-width: 700px) {
+  .kosmetik-list {
+    gap: 1rem;
+    margin: 1rem 0.5rem;
+  }
+  .kosmetik-item {
+    width: 28%;
+    min-width: 120px;
+    margin-bottom: 1rem;
+    padding: 1rem 0.2rem;
+  }
+}
 .kosmetik-item img {
   width: 120px;
   height: 120px;

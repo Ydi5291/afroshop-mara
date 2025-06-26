@@ -90,3 +90,55 @@ main {
     height: 120px;
   }
 }
+/* Bouton flottant WhatsApp */
+.whatsapp-chatbot-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-size: 12px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  border: none;
+}
+
+.whatsapp-chatbot-btn:hover,
+.whatsapp-chatbot-btn:focus {
+  background: #1ebe57;
+  box-shadow: 0 4px 16px rgba(37,211,102,0.18);
+  transform: translateY(-2px) scale(1.05);
+  color: #fff;
+  text-decoration: none;
+}
+
+.whatsapp-chatbot-btn svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+  margin: 0;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 600px) {
+  .whatsapp-chatbot-btn {
+    width: 44px;
+    height: 44px;
+    bottom: 25px;
+    right: 16px;
+     font-size: 8px;
+  }
+  .whatsapp-chatbot-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+}
