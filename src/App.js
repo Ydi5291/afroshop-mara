@@ -69,7 +69,7 @@ function App() {
       >
         <a
           className="whatsapp-chatbot-btn"
-          href="https://wa.me/33612345678?text=Bonjour%20je%20veux%20plus%20d'informations%20sur%20Afroshop%20Mara"
+          href="https://wa.me/4901626291461?text=Bonjour%20je%20veux%20plus%20d'informations%20sur%20Afroshop%20Mara"
           target="_blank"
           rel="noopener noreferrer"
           style={{
