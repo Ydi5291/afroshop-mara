@@ -69,7 +69,7 @@ function App() {
       >
         <a
           className="whatsapp-chatbot-btn"
-          href="https://wa.me/4901626291461?text=Bonjour%20je%20veux%20plus%20d'informations%20sur%20Afroshop%20Mara"
+          href="https://wa.me/4915771126278?text=Hallo%2C%20ich%20möchte%20mehr%20Informationen%20über%20Afroshop%20Mara"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -89,7 +89,7 @@ function App() {
             <circle cx="16" cy="16" r="16" fill="#25D366" />
             <path d="M23.5 18.5c-.3-.2-1.8-.9-2.1-1-...Z" fill="#fff" />
           </svg>
-          <span style={{ marginLeft: 8 }}>Chat WhatsApp</span>
+          <span style={{ margin: 8, fontSize: "0.9rem" }}>Chat mit Mara</span>
         </a>
       </div>
       <Footer />
