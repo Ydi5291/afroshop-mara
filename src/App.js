@@ -20,6 +20,24 @@ function App() {
     setCart((prev) => [...prev, product]);
   };
 
+  // Incrémente la quantité d'un article
+  const incrementItem = (item) => {
+    setCart((prev) => [...prev, item]);
+  };
+
+  // Décrémente la quantité d'un article
+  const decrementItem = (item) => {
+    setCart((prev) => {
+      const idx = prev.findIndex(
+        (i) => i.name === item.name && i.price === item.price && i.img === item.img
+      );
+      if (idx !== -1) {
+        return prev.slice(0, idx).concat(prev.slice(idx + 1));
+      }
+      return prev;
+    });
+  };
+
   const [cartOpen, setCartOpen] = useState(false);
 
   let Content;
@@ -28,12 +46,34 @@ function App() {
   else if (page === 'Drinks') Content = <Drink addToCart={addToCart} />;
   else if (page === 'Sonstiges') Content = <Sonstiges addToCart={addToCart} />;
 
-  return (
+  return (  
     <div className="App">
       <Header cart={cart} onNav={setPage} onCartClick={() => setCartOpen(true)} />
 
-      {cartOpen && (
-        <Cart cart={cart} onClose={() => setCartOpen(false)} />
+      {/* Message de bienvenue */}
+      <section className="welcome-section" style={{
+        background: '#f7f7fa',
+        padding: '1.5rem 1rem',
+        margin: '0 auto 1.5rem auto',
+        borderRadius: '10px',
+        maxWidth: '700px',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
+        textAlign: 'center',
+        color: '#222',
+        fontFamily: 'inherit',
+      }}>
+        <h1 style={{ color: '#1976d2', marginBottom: '0.5rem', fontSize: '2rem' }}>Herzlich willkommen!</h1>
+        <p style={{ fontSize: '1.15rem', margin: 0 }}>
+          <b>Afroshop Mara African & Asian Food</b><br/>
+          <span style={{ color: '#444' }}>Lothringer Straße 222, 46045 Oberhausen</span><br/>
+          <span style={{ color: '#1976d2', fontWeight: 500 }}>Öffnungszeiten:</span><br/>
+          Montag – Samstag: 10:00 – 20:00 Uhr<br/>
+          Sonntag: Geschlossen
+        </p>
+      </section>
+
+      { cartOpen && (  
+        <Cart cart={cart} onClose={() => setCartOpen(false)} onIncrement={incrementItem} onDecrement={decrementItem} />
       )}
       <main>
         <div className="vertical-buttons">
@@ -58,6 +98,7 @@ function App() {
           {Content}
         </div>
       </main>
+      
       {/* ------Chatbot------ */}
       <div
         style={{

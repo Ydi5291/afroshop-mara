@@ -18,7 +18,7 @@ function Header({ onNav, cart = [], onCartClick }) {
           </button>
         </div>
         <button
-          className="burger"
+          className={`burger${menuOpen ? ' open' : ''}`}
           onClick={() => setMenuOpen((open) => !open)}
           aria-label="Menü öffnen/schließen"
         >
@@ -31,8 +31,11 @@ function Header({ onNav, cart = [], onCartClick }) {
         <button onClick={() => handleNav('Lebensmittel')}>Lebensmittel</button>
         <button onClick={() => handleNav('Kosmetik')}>Kosmetik</button>
         <button onClick={() => handleNav('Sonstiges')}>Sonstiges</button>
+        <button onClick={() => handleNav('Drinks')}>Drinks</button>
         <button onClick={() => handleNav('UeberUns')}>Über uns</button>
         <button onClick={() => handleNav('Kontakt')}>Uns kontaktieren</button>
+        <button onClick={() => handleNav('Impressum')}>Impressum</button>
+        <button onClick={() => handleNav('AGB')}>AGB</button>
       </nav>
     </header>
   );

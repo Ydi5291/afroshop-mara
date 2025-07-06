@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/Cart.css';
 
-function Cart({ cart, onClose }) {
+function Cart({ cart, onClose, onIncrement, onDecrement }) {
   // Regrouper les articles par nom pour compter les quantités
   const grouped = cart.reduce((acc, item) => {
     const key = item.name;
@@ -32,6 +32,8 @@ function Cart({ cart, onClose }) {
                 <img src={item.img} alt={item.name} />
                 <span>{item.name}</span>
                 <span>{item.price} × {item.quantity}</span>
+                <button onClick={() => onDecrement(item)} style={{margin: '0 4px'}}>-</button>
+                <button onClick={() => onIncrement(item)} style={{margin: '0 4px'}}>+</button>
               </li>
             ))}
           </ul>
