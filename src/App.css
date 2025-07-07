@@ -130,9 +130,9 @@ main {
 /* Responsive pour mobile */
 @media (max-width: 600px) {
   .whatsapp-chatbot-btn {
-    width: 64px;
-    height: 68px;
-    bottom: 25px;
+    width: 30px;
+    height: 38px;
+    bottom: 70px;
     right: 16px;
    
   }

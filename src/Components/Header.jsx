@@ -5,8 +5,27 @@ function Header({ onNav, cart = [], onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNav = (page) => {
-    onNav(page);
-    setMenuOpen(false);
+    // Scroll smooth si la section existe
+    const sectionMap = {
+      Lebensmittel: 'lebensmittel',
+      Kosmetik: 'kosmetik',
+      Drinks: 'drinks',
+      Sonstiges: 'sonstiges',
+    };
+    const sectionId = sectionMap[page];
+    if (sectionId) {
+      setMenuOpen(false);
+      onNav(page);
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      onNav(page);
+      setMenuOpen(false);
+    }
   };
 
   return (

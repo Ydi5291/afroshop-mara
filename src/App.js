@@ -9,7 +9,7 @@ import Cart from './Components/Cart.jsx';
 import Schill from './images/ImgLebensmittel/Schill.jpg';
 import KosmetikImg from './images/ImgKosmetik/Kosmetik.jpg';
 import Bissap from './images/ImgDrink/Bissap.png';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 function App() {
   const [page, setPage] = useState('Lebensmittel');
@@ -39,12 +39,58 @@ function App() {
   };
 
   const [cartOpen, setCartOpen] = useState(false);
+  const [whatsAppPos, setWhatsAppPos] = useState({ x: 24, y: 24 });
+  const dragRef = useRef(null);
+  const dragOffset = useRef({ x: 0, y: 0 });
+  const dragging = useRef(false);
+
+  // Gestion du drag
+  const onDragStart = (e) => {
+    dragging.current = true;
+    const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
+    dragOffset.current = {
+      x: clientX - whatsAppPos.x,
+      y: clientY - whatsAppPos.y,
+    };
+    document.addEventListener('mousemove', onDragMove);
+    document.addEventListener('mouseup', onDragEnd);
+    document.addEventListener('touchmove', onDragMove, { passive: false });
+    document.addEventListener('touchend', onDragEnd);
+  };
+  const onDragMove = (e) => {
+    if (!dragging.current) return;
+    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
+    setWhatsAppPos({
+      x: Math.max(0, clientX - dragOffset.current.x),
+      y: Math.max(0, clientY - dragOffset.current.y),
+    });
+    if (e.type === 'touchmove') e.preventDefault();
+  };
+  const onDragEnd = () => {
+    dragging.current = false;
+    document.removeEventListener('mousemove', onDragMove);
+    document.removeEventListener('mouseup', onDragEnd);
+    document.removeEventListener('touchmove', onDragMove);
+    document.removeEventListener('touchend', onDragEnd);
+  };
 
   let Content;
-  if (page === 'Lebensmittel') Content = <Lebensmittel addToCart={addToCart} />;
-  else if (page === 'Kosmetik') Content = <Kosmetik addToCart={addToCart} />;
-  else if (page === 'Drinks') Content = <Drink addToCart={addToCart} />;
-  else if (page === 'Sonstiges') Content = <Sonstiges addToCart={addToCart} />;
+  let sectionId = '';
+  if (page === 'Lebensmittel') {
+    Content = <Lebensmittel addToCart={addToCart} />;
+    sectionId = 'lebensmittel';
+  } else if (page === 'Kosmetik') {
+    Content = <Kosmetik addToCart={addToCart} />;
+    sectionId = 'kosmetik';
+  } else if (page === 'Drinks') {
+    Content = <Drink addToCart={addToCart} />;
+    sectionId = 'drinks';
+  } else if (page === 'Sonstiges') {
+    Content = <Sonstiges addToCart={addToCart} />;
+    sectionId = 'sonstiges';
+  }
 
   return (  
     <div className="App">
@@ -65,7 +111,7 @@ function App() {
         <h1 style={{ color: '#1976d2', marginBottom: '0.5rem', fontSize: '2rem' }}>Herzlich willkommen!</h1>
         <p style={{ fontSize: '1.15rem', margin: 0 }}>
           <b>Afroshop Mara African & Asian Food</b><br/>
-          <span style={{ color: '#444' }}>Lothringer Straße 222, 46045 Oberhausen</span><br/>
+          <span style={{ color: '#444' }}>Virchowstr 6, 46047 Oberhausen</span><br/>
           <span style={{ color: '#1976d2', fontWeight: 500 }}>Öffnungszeiten:</span><br/>
           Montag – Samstag: 10:00 – 20:00 Uhr<br/>
           Sonntag: Geschlossen
@@ -77,36 +123,43 @@ function App() {
       )}
       <main>
         <div className="vertical-buttons">
-          <button onClick={() => setPage('Lebensmittel')}>
+          <button onClick={() => setPage('Lebensmittel')} id="btn-lebensmittel">
             <img src={Schill} alt="Lebensmittel" style={{ width: 32, height: 32, marginRight: 8, borderRadius: 4 }} />
             Lebensmittel
           </button>
-          <button onClick={() => setPage('Kosmetik')}>
+          <button onClick={() => setPage('Kosmetik')} id="btn-kosmetik">
             <img src={KosmetikImg} alt="Kosmetik" style={{ width: 32, height: 32, marginRight: 8, borderRadius: 4 }} />
             Kosmetik
           </button>
-          <button onClick={() => setPage('Drinks')}>
+          <button onClick={() => setPage('Drinks')} id="btn-drinks">
             <img src={Bissap} alt="Drinks" style={{ width: 32, height: 32, marginRight: 8, borderRadius: 4 }} />
             Drinks
           </button>
-          <button onClick={() => setPage('Sonstiges')}>
+          <button onClick={() => setPage('Sonstiges')} id="btn-sonstiges">
             <img src={Bissap} alt="Sonstiges" style={{ width: 32, height: 32, marginRight: 8, borderRadius: 4 }} />
             Sonstiges
           </button>
         </div>
-        <div className="content-section">
+        <div className="content-section" id={sectionId}>
           {Content}
         </div>
       </main>
       
       {/* ------Chatbot------ */}
       <div
+        ref={dragRef}
         style={{
           position: "fixed",
-          bottom: 24,
-          right: 24,
+          bottom: 'unset',
+          right: 'unset',
+          left: whatsAppPos.x,
+          top: whatsAppPos.y,
           zIndex: 1000,
+          touchAction: 'none',
+          cursor: 'grab',
         }}
+        onMouseDown={onDragStart}
+        onTouchStart={onDragStart}
       >
         <a
           className="whatsapp-chatbot-btn"
