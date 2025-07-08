@@ -19,7 +19,7 @@
   width: 220px;
 }
 
-/* Responsive mobile : 2 colonnes */
+/* Responsive mobile : 3 colonnes */
 @media (max-width: 700px) {
   .lebensmittel-list {
     margin: 0.5rem 0.5rem;
@@ -27,17 +27,17 @@
   }
 
   .lebensmittel-item {
-    width: 28%;
-    /* 2 colonnes */
-    min-width: 120px;
+    width: 31%;
+    /* 3 colonnes */
+    min-width: 100px;
     margin-bottom: 1rem;
     padding: 1rem 0.2rem;
   }
 }
 
 .lebensmittel-item img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;

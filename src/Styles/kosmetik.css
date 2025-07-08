@@ -19,22 +19,22 @@
   width: 220px;
 }
 
-/* Responsive : 2 colonnes sur mobile */
+/* Responsive : 3 colonnes sur mobile */
 @media (max-width: 700px) {
   .kosmetik-list {
-    gap: 1rem;
+    gap: 0.5rem;
     margin: 1rem 0.5rem;
   }
   .kosmetik-item {
-    width: 28%;
-    min-width: 120px;
+    width: 31%;
+    min-width: 100px;
     margin-bottom: 1rem;
     padding: 1rem 0.2rem;
   }
 }
 .kosmetik-item img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
