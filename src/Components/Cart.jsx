@@ -19,8 +19,8 @@ function Cart({ cart, onClose, onIncrement, onDecrement }) {
   }, 0);
 
   return (
-    <div className="cart-overlay">
-      <div className="cart-modal">
+    <div className="cart-overlay fullscreen">
+      <div className="cart-modal fullscreen-modal">
         <button className="cart-close" onClick={onClose}>×</button>
         <h2>Warenkorb</h2>
         {items.length === 0 ? (
@@ -40,6 +40,9 @@ function Cart({ cart, onClose, onIncrement, onDecrement }) {
         )}
         <div className="cart-total">
           <b>Gesamt:</b> {total.toFixed(2).replace('.', ',')} €
+        </div>
+        <div className="cart-payment-options" style={{marginTop: '1.1rem', textAlign: 'center', color: '#444', fontSize: '1.08rem'}}>
+          Zahlen Sie an der Kasse oder per <b>PayPal</b> oder <b>Klarna</b>?
         </div>
       </div>
     </div>
