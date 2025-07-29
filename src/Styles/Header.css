@@ -1,6 +1,6 @@
 :root {
   --primary-color: #2c3e50;
-  --accent-color: #ffb347;
+  --accent-color: #4a5568;
   --text-light: #fff;
   --overlay-bg: rgba(30, 30, 30, 0.45);
   --btn-bg: rgba(44, 62, 80, 0.92);
@@ -88,14 +88,14 @@
 
 .burger.open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
-  background: #ffb347;
+  background: #4a5568;
 }
 .burger.open span:nth-child(2) {
   opacity: 0;
 }
 .burger.open span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
-  background: #ffb347;
+  background: #4a5568;
 }
 
 /* Navigation */
@@ -172,7 +172,7 @@
 
   .header-nav button:hover,
   .header-nav button:focus {
-    background: #ffb347;
+    background: #4a5568;
     color: #222;
   }
 }

@@ -17,7 +17,7 @@ function Footer({ onNav }) {
         </div>
         
         <div className="footer-navigation">
-          <h4 style={{color: '#ffb347', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Navigation</h4>
+          <h4 style={{color: '#4a5568', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Navigation</h4>
           <button onClick={() => onNav && onNav('Lebensmittel')} className="footer-nav-btn">Lebensmittel</button>
           <button onClick={() => onNav && onNav('Kosmetik')} className="footer-nav-btn">Kosmetik</button>
           <button onClick={() => onNav && onNav('Drinks')} className="footer-nav-btn">Drinks</button>
@@ -25,7 +25,7 @@ function Footer({ onNav }) {
         </div>
         
         <div className="footer-links">
-          <h4 style={{color: '#ffb347', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Service</h4>
+          <h4 style={{color: '#4a5568', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Service</h4>
           <button onClick={() => onNav && onNav('Ueberuns')} className="footer-nav-btn">Über uns</button>
           <button onClick={() => onNav && onNav('Kontakt')} className="footer-nav-btn">Kontakt</button>
           <button onClick={() => onNav && onNav('Impressum')} className="footer-nav-btn">Impressum</button>
@@ -33,7 +33,7 @@ function Footer({ onNav }) {
         </div>
         
         <div className="footer-social">
-          <h4 style={{color: '#ffb347', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Folgen Sie uns</h4>
+          <h4 style={{color: '#4a5568', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Folgen Sie uns</h4>
           <div style={{display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center'}}>
             <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
               <img src={facebookIcon} alt="Facebook" />

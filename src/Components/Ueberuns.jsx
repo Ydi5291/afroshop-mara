@@ -13,7 +13,7 @@ function Ueberuns() {
         fontSize: '2.5rem',
         marginBottom: '2rem',
         textAlign: 'center',
-        color: '#ffb347',
+        color: '#4a5568',
         fontWeight: 'bold'
       }}>
         Über uns
@@ -98,7 +98,7 @@ function Ueberuns() {
             <span style={{
               position: 'absolute',
               left: 0,
-              color: '#ffb347',
+              color: '#4a5568',
               fontWeight: 'bold'
             }}>✓</span>
             Authentische afrikanische Produkte
@@ -111,7 +111,7 @@ function Ueberuns() {
             <span style={{
               position: 'absolute',
               left: 0,
-              color: '#ffb347',
+              color: '#4a5568',
               fontWeight: 'bold'
             }}>✓</span>
             Höchste Qualitätsstandards
@@ -124,7 +124,7 @@ function Ueberuns() {
             <span style={{
               position: 'absolute',
               left: 0,
-              color: '#ffb347',
+              color: '#4a5568',
               fontWeight: 'bold'
             }}>✓</span>
             Schnelle und sichere Lieferung
@@ -137,7 +137,7 @@ function Ueberuns() {
             <span style={{
               position: 'absolute',
               left: 0,
-              color: '#ffb347',
+              color: '#4a5568',
               fontWeight: 'bold'
             }}>✓</span>
             Persönlicher Kundenservice
@@ -149,7 +149,7 @@ function Ueberuns() {
             <span style={{
               position: 'absolute',
               left: 0,
-              color: '#ffb347',
+              color: '#4a5568',
               fontWeight: 'bold'
             }}>✓</span>
             Faire Preise

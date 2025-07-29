@@ -13,7 +13,7 @@ function Impressum() {
         fontSize: '2.5rem',
         marginBottom: '2rem',
         textAlign: 'center',
-        color: '#ffb347',
+        color: '#4a5568',
         fontWeight: 'bold'
       }}>
         Impressum
@@ -36,7 +36,7 @@ function Impressum() {
         
         <div style={{ marginBottom: '1.5rem' }}>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -52,7 +52,7 @@ function Impressum() {
 
         <div style={{ marginBottom: '1.5rem' }}>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -66,7 +66,7 @@ function Impressum() {
 
         <div style={{ marginBottom: '1.5rem' }}>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -119,7 +119,7 @@ function Impressum() {
         
         <div style={{ marginBottom: '1.5rem' }}>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -135,7 +135,7 @@ function Impressum() {
 
         <div style={{ marginBottom: '1.5rem' }}>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -150,7 +150,7 @@ function Impressum() {
 
         <div>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>

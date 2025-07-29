@@ -30,7 +30,7 @@
 .footer-info h3 {
   margin: 0 0 0.3rem 0;
   font-size: 1.2rem;
-  color: #ffb347;
+  color: #4a5568;
 }
 
 .footer-info p {
@@ -62,7 +62,7 @@
 }
 
 .footer-nav-btn:hover {
-  color: #ffb347;
+  color: #4a5568;
 }
 
 .footer-links {
@@ -76,7 +76,7 @@
 }
 
 .footer-links a {
-  color: #ffb347;
+  color: #4a5568;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -111,7 +111,7 @@
 }
 
 .footer-social a:hover {
-  background: #ffb347;
+  background: #4a5568;
   transform: scale(1.12);
 }
 

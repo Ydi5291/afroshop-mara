@@ -35,7 +35,7 @@ function Kontakt() {
         fontSize: '2.5rem',
         marginBottom: '2rem',
         textAlign: 'center',
-        color: '#ffb347',
+        color: '#4a5568',
         fontWeight: 'bold'
       }}>
         Uns Kontaktieren
@@ -65,7 +65,7 @@ function Kontakt() {
           
           <div style={{ marginBottom: '1.5rem' }}>
             <h3 style={{
-              color: '#ffb347',
+              color: '#4a5568',
               marginBottom: '0.5rem',
               fontSize: '1.2rem',
               display: 'flex',
@@ -95,7 +95,7 @@ function Kontakt() {
 
           <div style={{ marginBottom: '1.5rem' }}>
             <h3 style={{
-              color: '#ffb347',
+              color: '#4a5568',
               marginBottom: '0.5rem',
               fontSize: '1.2rem',
               display: 'flex',
@@ -127,7 +127,7 @@ function Kontakt() {
 
           <div>
             <h3 style={{
-              color: '#ffb347',
+              color: '#4a5568',
               marginBottom: '0.5rem',
               fontSize: '1.2rem',
               display: 'flex',
@@ -189,7 +189,7 @@ function Kontakt() {
                   transition: 'border-color 0.2s',
                   boxSizing: 'border-box'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ffb347'}
+                onFocus={(e) => e.target.style.borderColor = '#4a5568'}
                 onBlur={(e) => e.target.style.borderColor = '#e9ecef'}
               />
             </div>
@@ -218,7 +218,7 @@ function Kontakt() {
                   transition: 'border-color 0.2s',
                   boxSizing: 'border-box'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ffb347'}
+                onFocus={(e) => e.target.style.borderColor = '#4a5568'}
                 onBlur={(e) => e.target.style.borderColor = '#e9ecef'}
               />
             </div>
@@ -247,7 +247,7 @@ function Kontakt() {
                   transition: 'border-color 0.2s',
                   boxSizing: 'border-box'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ffb347'}
+                onFocus={(e) => e.target.style.borderColor = '#4a5568'}
                 onBlur={(e) => e.target.style.borderColor = '#e9ecef'}
               />
             </div>
@@ -277,7 +277,7 @@ function Kontakt() {
                   resize: 'vertical',
                   boxSizing: 'border-box'
                 }}
-                onFocus={(e) => e.target.style.borderColor = '#ffb347'}
+                onFocus={(e) => e.target.style.borderColor = '#4a5568'}
                 onBlur={(e) => e.target.style.borderColor = '#e9ecef'}
               />
             </div>
@@ -287,7 +287,7 @@ function Kontakt() {
               style={{
                 width: '100%',
                 padding: '1rem',
-                backgroundColor: '#ffb347',
+                backgroundColor: '#4a5568',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '8px',
@@ -301,7 +301,7 @@ function Kontakt() {
                 e.target.style.transform = 'translateY(-1px)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#ffb347';
+                e.target.style.backgroundColor = '#4a5568';
                 e.target.style.transform = 'translateY(0)';
               }}
             >
@@ -329,21 +329,21 @@ function Kontakt() {
         
         <div style={{ fontSize: '1rem', lineHeight: '1.6' }}>
           <div style={{ marginBottom: '1rem' }}>
-            <h4 style={{ color: '#ffb347', marginBottom: '0.5rem' }}>
+            <h4 style={{ color: '#4a5568', marginBottom: '0.5rem' }}>
               Wie lange dauert die Lieferung?
             </h4>
             <p>In der Regel liefern wir innerhalb von 2-5 Werktagen in ganz Deutschland.</p>
           </div>
           
           <div style={{ marginBottom: '1rem' }}>
-            <h4 style={{ color: '#ffb347', marginBottom: '0.5rem' }}>
+            <h4 style={{ color: '#4a5568', marginBottom: '0.5rem' }}>
               Welche Zahlungsmethoden akzeptieren Sie?
             </h4>
             <p>Wir akzeptieren Barzahlung bei Abholung, PayPal und Klarna.</p>
           </div>
           
           <div>
-            <h4 style={{ color: '#ffb347', marginBottom: '0.5rem' }}>
+            <h4 style={{ color: '#4a5568', marginBottom: '0.5rem' }}>
               Kann ich Produkte abholen?
             </h4>
             <p>Ja, Sie können Ihre Bestellung gerne bei uns vor Ort abholen. Kontaktieren Sie uns für weitere Details.</p>

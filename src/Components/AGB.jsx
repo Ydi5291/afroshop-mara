@@ -13,7 +13,7 @@ function AGB() {
         fontSize: '2.5rem',
         marginBottom: '2rem',
         textAlign: 'center',
-        color: '#ffb347',
+        color: '#4a5568',
         fontWeight: 'bold'
       }}>
         Allgemeine Geschäftsbedingungen (AGB)
@@ -95,7 +95,7 @@ function AGB() {
         
         <div style={{ marginBottom: '1.5rem' }}>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -109,7 +109,7 @@ function AGB() {
 
         <div>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -128,7 +128,7 @@ function AGB() {
               <span style={{
                 position: 'absolute',
                 left: 0,
-                color: '#ffb347',
+                color: '#4a5568',
                 fontWeight: 'bold'
               }}>•</span>
               Barzahlung bei Abholung
@@ -141,7 +141,7 @@ function AGB() {
               <span style={{
                 position: 'absolute',
                 left: 0,
-                color: '#ffb347',
+                color: '#4a5568',
                 fontWeight: 'bold'
               }}>•</span>
               PayPal
@@ -153,7 +153,7 @@ function AGB() {
               <span style={{
                 position: 'absolute',
                 left: 0,
-                color: '#ffb347',
+                color: '#4a5568',
                 fontWeight: 'bold'
               }}>•</span>
               Klarna
@@ -211,7 +211,7 @@ function AGB() {
         
         <div style={{ marginBottom: '1.5rem' }}>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
@@ -226,7 +226,7 @@ function AGB() {
 
         <div>
           <h3 style={{
-            color: '#ffb347',
+            color: '#4a5568',
             marginBottom: '0.5rem',
             fontSize: '1.2rem'
           }}>
