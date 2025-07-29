@@ -194,7 +194,7 @@ function App() {
           <span style={{ margin: 8, fontSize: "0.9rem" }}>Chat mit Mara</span>
         </a>
       </div>
-      <Footer />
+      <Footer onNav={setPage} />
     </div>
   );
 }
