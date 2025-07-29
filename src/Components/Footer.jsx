@@ -7,6 +7,36 @@ import twitterIcon from '../images/SocialNetwork/twitter.png';
 import youtubeIcon from '../images/SocialNetwork/youtube.png';
 
 function Footer({ onNav }) {
+  const handleNav = (page) => {
+    // Scroll smooth si la section existe
+    const sectionMap = {
+      Lebensmittel: 'lebensmittel',
+      Kosmetik: 'kosmetik',
+      Drinks: 'drinks',
+      Sonstiges: 'sonstiges',
+      Ueberuns: 'ueberuns',
+      Kontakt: 'kontakt',
+      Impressum: 'impressum',
+      AGB: 'agb',
+    };
+    const sectionId = sectionMap[page];
+    if (sectionId) {
+      onNav(page);
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      onNav(page);
+      // Pour les autres pages, scroll vers le haut
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 100);
+    }
+  };
+
   return (
     <footer className="App-footer">
       <div className="footer-main">
@@ -18,18 +48,18 @@ function Footer({ onNav }) {
         
         <div className="footer-navigation">
           <h4 style={{color: '#4a5568', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Navigation</h4>
-          <button onClick={() => onNav && onNav('Lebensmittel')} className="footer-nav-btn">Lebensmittel</button>
-          <button onClick={() => onNav && onNav('Kosmetik')} className="footer-nav-btn">Kosmetik</button>
-          <button onClick={() => onNav && onNav('Drinks')} className="footer-nav-btn">Drinks</button>
-          <button onClick={() => onNav && onNav('Sonstiges')} className="footer-nav-btn">Sonstiges</button>
+          <button onClick={() => handleNav('Lebensmittel')} className="footer-nav-btn">Lebensmittel</button>
+          <button onClick={() => handleNav('Kosmetik')} className="footer-nav-btn">Kosmetik</button>
+          <button onClick={() => handleNav('Drinks')} className="footer-nav-btn">Drinks</button>
+          <button onClick={() => handleNav('Sonstiges')} className="footer-nav-btn">Sonstiges</button>
         </div>
         
         <div className="footer-links">
           <h4 style={{color: '#4a5568', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Service</h4>
-          <button onClick={() => onNav && onNav('Ueberuns')} className="footer-nav-btn">Über uns</button>
-          <button onClick={() => onNav && onNav('Kontakt')} className="footer-nav-btn">Kontakt</button>
-          <button onClick={() => onNav && onNav('Impressum')} className="footer-nav-btn">Impressum</button>
-          <button onClick={() => onNav && onNav('AGB')} className="footer-nav-btn">AGB</button>
+          <button onClick={() => handleNav('Ueberuns')} className="footer-nav-btn">Über uns</button>
+          <button onClick={() => handleNav('Kontakt')} className="footer-nav-btn">Kontakt</button>
+          <button onClick={() => handleNav('Impressum')} className="footer-nav-btn">Impressum</button>
+          <button onClick={() => handleNav('AGB')} className="footer-nav-btn">AGB</button>
         </div>
         
         <div className="footer-social">

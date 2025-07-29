@@ -5,16 +5,22 @@ function Header({ onNav, cart = [], onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNav = (page) => {
+    // Fermer le menu d'abord
+    setMenuOpen(false);
+    
     // Scroll smooth si la section existe
     const sectionMap = {
       Lebensmittel: 'lebensmittel',
       Kosmetik: 'kosmetik',
       Drinks: 'drinks',
       Sonstiges: 'sonstiges',
+      Ueberuns: 'ueberuns',
+      Kontakt: 'kontakt',
+      Impressum: 'impressum',
+      AGB: 'agb',
     };
     const sectionId = sectionMap[page];
     if (sectionId) {
-      setMenuOpen(false);
       onNav(page);
       setTimeout(() => {
         const el = document.getElementById(sectionId);
@@ -23,8 +29,11 @@ function Header({ onNav, cart = [], onCartClick }) {
         }
       }, 100);
     } else {
+      // Pour les autres pages (Über uns, Kontakt, Impressum, AGB)
       onNav(page);
-      setMenuOpen(false);
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 150);
     }
   };
 
