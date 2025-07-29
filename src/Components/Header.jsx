@@ -15,7 +15,7 @@ function Header({ onNav, cart = [], onCartClick }) {
       Drinks: 'drinks',
       Sonstiges: 'sonstiges',
       Ueberuns: 'ueberuns',
-      Kontakt: 'kontakt',
+      Kontakt: 'kontakt', 
       Impressum: 'impressum',
       AGB: 'agb',
     };
