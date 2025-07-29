@@ -51,7 +51,7 @@ function Header({ onNav, cart = [], onCartClick }) {
         <button onClick={() => handleNav('Kosmetik')}>Kosmetik</button>
         <button onClick={() => handleNav('Sonstiges')}>Sonstiges</button>
         <button onClick={() => handleNav('Drinks')}>Drinks</button>
-        <button onClick={() => handleNav('UeberUns')}>Über uns</button>
+        <button onClick={() => handleNav('Ueberuns')}>Über uns</button>
         <button onClick={() => handleNav('Kontakt')}>Uns kontaktieren</button>
         <button onClick={() => handleNav('Impressum')}>Impressum</button>
         <button onClick={() => handleNav('AGB')}>AGB</button>

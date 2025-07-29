@@ -6,6 +6,8 @@ import Kosmetik from './Components/Kosmetik.jsx';
 import Drink from './Components/Drink.jsx';
 import Sonstiges from './Components/Sonstiges.jsx';
 import Cart from './Components/Cart.jsx';
+import Ueberuns from './Components/Ueberuns.jsx';
+import Kontakt from './Components/Kontakt.jsx';
 import Schill from './images/ImgLebensmittel/Schill.jpg';
 import KosmetikImg from './images/ImgKosmetik/Kosmetik.jpg';
 import Bissap from './images/ImgDrink/Bissap.png';
@@ -90,6 +92,12 @@ function App() {
   } else if (page === 'Sonstiges') {
     Content = <Sonstiges addToCart={addToCart} />;
     sectionId = 'sonstiges';
+  } else if (page === 'Ueberuns') {
+    Content = <Ueberuns />;
+    sectionId = 'ueberuns';
+  } else if (page === 'Kontakt') {
+    Content = <Kontakt />;
+    sectionId = 'kontakt';
   }
 
   return (  
@@ -181,7 +189,7 @@ function App() {
         >
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="16" fill="#25D366" />
-            <path d="M23.5 18.5c-.3-.2-1.8-.9-2.1-1-...Z" fill="#fff" />
+            <path d="M23.5 18.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.6-.2-.8.2l-1.1 1.4c-.1.2-.3.2-.5.1-1.3-.6-2.4-1.4-3.3-2.4-.9-1-1.8-2-2.4-3.3-.1-.2-.1-.4.1-.5l1.4-1.1c.4-.3.5-.6.2-.8-.1-.3-.9-1.8-1-2.1-.1-.3-.3-.3-.6-.3h-1.1c-.3 0-.8.1-1.2.5-.4.4-1.5 1.5-1.5 3.6s1.5 4.2 1.7 4.5c.2.3 3 4.6 7.3 6.4 4.3 1.8 4.3 1.2 5.1 1.1.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1Z" fill="#fff" />
           </svg>
           <span style={{ margin: 8, fontSize: "0.9rem" }}>Chat mit Mara</span>
         </a>
