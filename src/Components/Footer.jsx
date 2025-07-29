@@ -28,8 +28,8 @@ function Footer({ onNav }) {
           <h4 style={{color: '#ffb347', marginBottom: '0.8rem', fontSize: '1.1rem'}}>Service</h4>
           <button onClick={() => onNav && onNav('Ueberuns')} className="footer-nav-btn">Über uns</button>
           <button onClick={() => onNav && onNav('Kontakt')} className="footer-nav-btn">Kontakt</button>
-          <a href="#Impressum">Impressum</a>
-          <a href="#AGB">AGB</a>
+          <button onClick={() => onNav && onNav('Impressum')} className="footer-nav-btn">Impressum</button>
+          <button onClick={() => onNav && onNav('AGB')} className="footer-nav-btn">AGB</button>
         </div>
         
         <div className="footer-social">

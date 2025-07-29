@@ -8,6 +8,8 @@ import Sonstiges from './Components/Sonstiges.jsx';
 import Cart from './Components/Cart.jsx';
 import Ueberuns from './Components/Ueberuns.jsx';
 import Kontakt from './Components/Kontakt.jsx';
+import Impressum from './Components/Impressum.jsx';
+import AGB from './Components/AGB.jsx';
 import Schill from './images/ImgLebensmittel/Schill.jpg';
 import KosmetikImg from './images/ImgKosmetik/Kosmetik.jpg';
 import Bissap from './images/ImgDrink/Bissap.png';
@@ -98,6 +100,12 @@ function App() {
   } else if (page === 'Kontakt') {
     Content = <Kontakt />;
     sectionId = 'kontakt';
+  } else if (page === 'Impressum') {
+    Content = <Impressum />;
+    sectionId = 'impressum';
+  } else if (page === 'AGB') {
+    Content = <AGB />;
+    sectionId = 'agb';
   }
 
   return (  
