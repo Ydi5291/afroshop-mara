@@ -10,10 +10,11 @@ import Ueberuns from './Components/Ueberuns.jsx';
 import Kontakt from './Components/Kontakt.jsx';
 import Impressum from './Components/Impressum.jsx';
 import AGB from './Components/AGB.jsx';
+import ColisChecker from './Components/ColisChecker.jsx';
 import Schill from './images/ImgLebensmittel/Schill.jpg';
 import KosmetikImg from './images/ImgKosmetik/Kosmetik.jpg';
 import Bissap from './images/ImgDrink/Bissap.png';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 
 function App() {
   const [page, setPage] = useState('Lebensmittel');
@@ -43,42 +44,6 @@ function App() {
   };
 
   const [cartOpen, setCartOpen] = useState(false);
-  const [whatsAppPos, setWhatsAppPos] = useState({ x: 24, y: 24 });
-  const dragRef = useRef(null);
-  const dragOffset = useRef({ x: 0, y: 0 });
-  const dragging = useRef(false);
-
-  // Gestion du drag
-  const onDragStart = (e) => {
-    dragging.current = true;
-    const clientX = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX;
-    const clientY = e.type === 'touchstart' ? e.touches[0].clientY : e.clientY;
-    dragOffset.current = {
-      x: clientX - whatsAppPos.x,
-      y: clientY - whatsAppPos.y,
-    };
-    document.addEventListener('mousemove', onDragMove);
-    document.addEventListener('mouseup', onDragEnd);
-    document.addEventListener('touchmove', onDragMove, { passive: false });
-    document.addEventListener('touchend', onDragEnd);
-  };
-  const onDragMove = (e) => {
-    if (!dragging.current) return;
-    const clientX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX;
-    const clientY = e.type === 'touchmove' ? e.touches[0].clientY : e.clientY;
-    setWhatsAppPos({
-      x: Math.max(0, clientX - dragOffset.current.x),
-      y: Math.max(0, clientY - dragOffset.current.y),
-    });
-    if (e.type === 'touchmove') e.preventDefault();
-  };
-  const onDragEnd = () => {
-    dragging.current = false;
-    document.removeEventListener('mousemove', onDragMove);
-    document.removeEventListener('mouseup', onDragEnd);
-    document.removeEventListener('touchmove', onDragMove);
-    document.removeEventListener('touchend', onDragEnd);
-  };
 
   let Content;
   let sectionId = '';
@@ -161,47 +126,9 @@ function App() {
         </div>
       </main>
       
-      {/* ------Chatbot------ */}
-      <div
-        ref={dragRef}
-        style={{
-          position: "fixed",
-          bottom: 'unset',
-          right: 'unset',
-          left: whatsAppPos.x,
-          top: whatsAppPos.y,
-          zIndex: 1000,
-          touchAction: 'none',
-          cursor: 'grab',
-        }}
-        onMouseDown={onDragStart}
-        onTouchStart={onDragStart}
-      >
-        <a
-          className="whatsapp-chatbot-btn"
-          href="https://wa.me/4915771126278?text=Hallo%2C%20ich%20möchte%20mehr%20Informationen%20über%20Afroshop%20Mara"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            background: "#25D366",
-            color: "#fff",
-            borderRadius: "50px",
-            padding: "12px 18px",
-            textDecoration: "none",
-            fontWeight: "bold",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-            fontSize: "1.1rem"
-          }}
-        >
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="16" fill="#25D366" />
-            <path d="M23.5 18.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.6-.2-.8.2l-1.1 1.4c-.1.2-.3.2-.5.1-1.3-.6-2.4-1.4-3.3-2.4-.9-1-1.8-2-2.4-3.3-.1-.2-.1-.4.1-.5l1.4-1.1c.4-.3.5-.6.2-.8-.1-.3-.9-1.8-1-2.1-.1-.3-.3-.3-.6-.3h-1.1c-.3 0-.8.1-1.2.5-.4.4-1.5 1.5-1.5 3.6s1.5 4.2 1.7 4.5c.2.3 3 4.6 7.3 6.4 4.3 1.8 4.3 1.2 5.1 1.1.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1Z" fill="#fff" />
-          </svg>
-          <span style={{ margin: 8, fontSize: "0.9rem" }}>Chat mit Mara</span>
-        </a>
-      </div>
+      {/* ------Vérificateur de Colis------ */}
+      <ColisChecker />
+      
       <Footer onNav={setPage} />
     </div>
   );
