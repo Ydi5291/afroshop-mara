@@ -126,7 +126,7 @@ function App() {
         </div>
       </main>
       
-      {/* ------Vérificateur de Colis------ */}
+      {/* ------ColisChecker------ */}
       <ColisChecker />
       
       <Footer onNav={setPage} />

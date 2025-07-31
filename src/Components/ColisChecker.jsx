@@ -10,36 +10,43 @@ const ColisChecker = () => {
   // Remplace cette URL par ton URL Webhook Make.com
   const webhookURL = "https://hook.eu2.make.com/fhe7c52de4eiil6rehhxeq9ztxvos9t8";
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    setReponse("");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setError(null);
+  setReponse("");
 
-    try {
-      // Envoi POST avec le code colis au webhook
-      const res = await fetch(webhookURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ codeColis }),
-      });
+  try {
+    const res = await fetch(webhookURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ codeColis }),
+    });
 
-      if (!res.ok) {
-        throw new Error("Serverfehler");
-      }
-
-      const data = await res.json();
-
-      // Supposons que Make renvoie un objet { message: "texte à afficher" }
-      setReponse(data.message || "Keine Antwort erhalten");
-    } catch (err) {
-      setError("Fehler beim Verbinden mit dem Server");
-    } finally {
-      setLoading(false);
+    if (!res.ok) {
+      throw new Error("Serverfehler");
     }
-  };
+
+    // Récupère la réponse comme texte d'abord
+    const responseText = await res.text();
+    
+    // Essaie de parser comme JSON, sinon utilise le texte brut
+    try {
+      const data = JSON.parse(responseText);
+      setReponse(data.message || data.body || responseText || "Keine Antwort erhalten");
+    } catch (jsonError) {
+      // Si ce n'est pas du JSON, utilise le texte brut
+      setReponse(responseText || "Anfrage erfolgreich gesendet ✅");
+    }
+  } catch (err) {
+    setError("Fehler beim Verbinden mit dem Server");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const closeModal = () => {
     setIsOpen(false);
