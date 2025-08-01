@@ -7,8 +7,9 @@ const ColisChecker = () => {
   const [error, setError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Remplace cette URL par ton URL Webhook Make.com
-  const webhookURL = "https://hook.eu2.make.com/fhe7c52de4eiil6rehhxeq9ztxvos9t8";
+  // Utilise les variables d'environnement sécurisées
+  const webhookURL = process.env.REACT_APP_WEBHOOK_URL || "https://hook.eu2.make.com/8mnseywrujqs57hwmaeyb9qkakfpo1uh";
+  const apiKey = process.env.REACT_APP_API_KEY || "Diamal199152";
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -21,6 +22,7 @@ const handleSubmit = async (e) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "x-make-apikey": apiKey  // API Key sécurisée
       },
       body: JSON.stringify({ codeColis }),
     });
@@ -46,7 +48,6 @@ const handleSubmit = async (e) => {
     setLoading(false);
   }
 };
-
 
   const closeModal = () => {
     setIsOpen(false);
