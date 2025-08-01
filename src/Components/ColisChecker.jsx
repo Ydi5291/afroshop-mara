@@ -56,6 +56,7 @@ const handleSubmit = async (e) => {
     }
 
     // Récupère la réponse
+   
     const responseText = await res.text();
     
     // Vérifier si la réponse indique un code invalide
@@ -65,7 +66,12 @@ const handleSubmit = async (e) => {
         responseText.includes("ungültig") ||
         responseText.toLowerCase().includes("error") ||
         responseText.trim() === "" ||
-        responseText.includes("404")) {
+        responseText.includes("404") ||
+        responseText.includes(": ist .") ||  // Détecte "Ihr Paket : ist ."
+        responseText.includes("Ihr Paket : ist") ||  // Pattern spécifique
+        responseText.match(/Ihr Paket\s*:\s*ist\s*\./) ||  // Regex flexible
+        responseText.includes("Paket :  ist") ||  // Avec espaces multiples
+        responseText.match(/:\s*ist\s*\./)) {  // Pattern général ": ist ."
       
       setError("Ups! Du hast entweder ein falsches Code eingegeben oder dein Code existiert nicht in unserem Datenbank.");
       return;
@@ -76,7 +82,8 @@ const handleSubmit = async (e) => {
       const data = JSON.parse(responseText);
       
       // Vérifier les messages d'erreur dans le JSON
-      if (data.error || data.status === "error" || data.message?.includes("not found")) {
+      if (data.error || data.status === "error" || data.message?.includes("not found") ||
+          data.message?.includes(": ist .") || data.body?.includes(": ist .")) {
         setError("Ups! Du hast entweder ein falsches Code eingegeben oder dein Code existiert nicht in unserem Datenbank.");
         return;
       }
@@ -219,12 +226,12 @@ const handleSubmit = async (e) => {
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                placeholder="Paketcode eingeben (z.B. ABC123)"
+                placeholder="Paketcode eingeben (z.B. 123ABC)"
                 value={codeColis}
                 onChange={handleInputChange}
                 required
                 style={{ 
-                  width: "100%", 
+                  width: "70%", 
                   padding: "15px", 
                   marginBottom: "15px",
                   border: `2px solid ${error ? '#ff6b6b' : '#ddd'}`,
@@ -286,7 +293,7 @@ const handleSubmit = async (e) => {
               </div>
             )}
             
-            {reponse && (
+                {reponse && (
               <div style={{ 
                 marginTop: "20px", 
                 color: "#2c3e50", 
@@ -299,8 +306,15 @@ const handleSubmit = async (e) => {
                 alignItems: 'flex-start',
                 gap: '8px'
               }}>
-                <span style={{ fontSize: '16px', marginTop: '1px' }}>✅</span>
-                <span>{reponse}</span>
+                <span style={{ fontSize: '16px', marginTop: '1px' }}>
+                  {reponse.toLowerCase().includes('angekommen') ? '😊' : '😔'}
+                </span>
+                <span>
+                  {reponse.toLowerCase().includes('angekommen') 
+                    ? reponse.replace(/angekommen/gi, 'angekommen 😊')
+                    : reponse
+                  }
+                </span>
               </div>
             )}
           </div>
