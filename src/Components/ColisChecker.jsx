@@ -11,39 +11,94 @@ const ColisChecker = () => {
   const webhookURL = process.env.REACT_APP_WEBHOOK_URL || "https://hook.eu2.make.com/8mnseywrujqs57hwmaeyb9qkakfpo1uh";
   const apiKey = process.env.REACT_APP_API_KEY || "Diamal199152";
 
+  // Fonction pour normaliser le code (majuscules + trim)
+  const normalizeCode = (code) => {
+    return code.trim().toUpperCase();
+  };
+
 const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
   setError(null);
   setReponse("");
 
+  // Normaliser le code avant envoi
+  const normalizedCode = normalizeCode(codeColis);
+
+  // Validation basique côté client
+  if (normalizedCode.length < 3) {
+    setError("Ups! Der Code ist zu kurz. Bitte geben Sie einen gültigen Code ein.");
+    setLoading(false);
+    return;
+  }
+
   try {
     const res = await fetch(webhookURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "x-make-apikey": apiKey  // API Key sécurisée
+        "x-make-apikey": apiKey
       },
-      body: JSON.stringify({ codeColis }),
+      body: JSON.stringify({ codeColis: normalizedCode }),
     });
 
     if (!res.ok) {
-      throw new Error("Serverfehler");
+      // Gestion des erreurs HTTP
+      if (res.status === 401 || res.status === 403) {
+        throw new Error("Authentifizierungsfehler");
+      } else if (res.status === 404) {
+        throw new Error("CODE_NOT_FOUND");
+      } else if (res.status >= 500) {
+        throw new Error("Serverfehler");
+      } else {
+        throw new Error("Unbekannter Fehler");
+      }
     }
 
-    // Récupère la réponse comme texte d'abord
+    // Récupère la réponse
     const responseText = await res.text();
     
-    // Essaie de parser comme JSON, sinon utilise le texte brut
+    // Vérifier si la réponse indique un code invalide
+    if (responseText.includes("not found") || 
+        responseText.includes("nicht gefunden") || 
+        responseText.includes("invalid") || 
+        responseText.includes("ungültig") ||
+        responseText.toLowerCase().includes("error") ||
+        responseText.trim() === "" ||
+        responseText.includes("404")) {
+      
+      setError("Ups! Du hast entweder ein falsches Code eingegeben oder dein Code existiert nicht in unserem Datenbank.");
+      return;
+    }
+    
+    // Essaie de parser comme JSON
     try {
       const data = JSON.parse(responseText);
-      setReponse(data.message || data.body || responseText || "Keine Antwort erhalten");
+      
+      // Vérifier les messages d'erreur dans le JSON
+      if (data.error || data.status === "error" || data.message?.includes("not found")) {
+        setError("Ups! Du hast entweder ein falsches Code eingegeben oder dein Code existiert nicht in unserem Datenbank.");
+        return;
+      }
+      
+      setReponse(data.message || data.body || responseText || "Paket erfolgreich gefunden!");
     } catch (jsonError) {
       // Si ce n'est pas du JSON, utilise le texte brut
       setReponse(responseText || "Anfrage erfolgreich gesendet ✅");
     }
+    
   } catch (err) {
-    setError("Fehler beim Verbinden mit dem Server");
+    console.error("Fehler:", err);
+    
+    if (err.message === "CODE_NOT_FOUND") {
+      setError("Ups! Du hast entweder ein falsches Code eingegeben oder dein Code existiert nicht in unserem Datenbank.");
+    } else if (err.message === "Authentifizierungsfehler") {
+      setError("Authentifizierungsfehler. Bitte versuchen Sie es später erneut.");
+    } else if (err.message === "Serverfehler") {
+      setError("Serverfehler. Bitte versuchen Sie es später erneut.");
+    } else {
+      setError("Verbindungsfehler. Bitte überprüfen Sie Ihre Internetverbindung.");
+    }
   } finally {
     setLoading(false);
   }
@@ -54,6 +109,15 @@ const handleSubmit = async (e) => {
     setCodeColis("");
     setReponse("");
     setError(null);
+  };
+
+  // Fonction pour gérer le changement d'input avec normalisation en temps réel
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setCodeColis(value);
+    // Effacer les erreurs quand l'utilisateur tape
+    if (error) setError(null);
+    if (reponse) setReponse("");
   };
 
   return (
@@ -155,25 +219,25 @@ const handleSubmit = async (e) => {
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                placeholder="Paketcode eingeben"
+                placeholder="Paketcode eingeben (z.B. ABC123)"
                 value={codeColis}
-                onChange={(e) => setCodeColis(e.target.value)}
+                onChange={handleInputChange}
                 required
                 style={{ 
                   width: "100%", 
                   padding: "15px", 
                   marginBottom: "15px",
-                  border: "2px solid #ddd",
+                  border: `2px solid ${error ? '#ff6b6b' : '#ddd'}`,
                   borderRadius: "8px",
                   fontSize: "16px",
                   outline: 'none',
                   transition: 'border-color 0.3s'
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = '#4a5568';
+                  e.target.style.borderColor = error ? '#ff6b6b' : '#4a5568';
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = '#ddd';
+                  e.target.style.borderColor = error ? '#ff6b6b' : '#ddd';
                 }}
               />
               <button 
@@ -203,31 +267,41 @@ const handleSubmit = async (e) => {
             </form>
 
             {error && (
-              <p style={{ 
-                color: "red", 
+              <div style={{ 
+                color: "#d32f2f", 
                 marginTop: "15px", 
                 fontSize: "14px",
                 textAlign: 'center',
                 backgroundColor: '#ffebee',
-                padding: '10px',
-                borderRadius: '6px'
+                padding: '12px',
+                borderRadius: '8px',
+                border: '1px solid #ffcdd2',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px'
               }}>
+                <span style={{ fontSize: '16px' }}>⚠️</span>
                 {error}
-              </p>
+              </div>
             )}
             
             {reponse && (
-              <p style={{ 
+              <div style={{ 
                 marginTop: "20px", 
                 color: "#2c3e50", 
                 fontSize: "15px",
-                backgroundColor: '#f0f9ff',
+                backgroundColor: '#e8f5e8',
                 padding: '15px',
                 borderRadius: '8px',
-                border: '1px solid #e3f2fd'
+                border: '1px solid #c8e6c9',
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '8px'
               }}>
-                {reponse}
-              </p>
+                <span style={{ fontSize: '16px', marginTop: '1px' }}>✅</span>
+                <span>{reponse}</span>
+              </div>
             )}
           </div>
         </div>
