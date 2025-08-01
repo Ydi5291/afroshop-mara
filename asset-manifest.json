@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/afroshop-mara/static/css/main.4aff4624.css",
-    "main.js": "/afroshop-mara/static/js/main.6c6540cd.js",
+    "main.js": "/afroshop-mara/static/js/main.c3a3c504.js",
     "static/js/453.bdb913de.chunk.js": "/afroshop-mara/static/js/453.bdb913de.chunk.js",
     "static/media/Kerastase.png": "/afroshop-mara/static/media/Kerastase.8a1cb0908785b7c2e91b.png",
     "static/media/Körperpflege.png": "/afroshop-mara/static/media/Körperpflege.b2518919981c5debc1f4.png",
@@ -27,11 +27,11 @@
     "static/media/Black-soap.webp": "/afroshop-mara/static/media/Black-soap.aed57257a1091c134f9d.webp",
     "index.html": "/afroshop-mara/index.html",
     "main.4aff4624.css.map": "/afroshop-mara/static/css/main.4aff4624.css.map",
-    "main.6c6540cd.js.map": "/afroshop-mara/static/js/main.6c6540cd.js.map",
+    "main.c3a3c504.js.map": "/afroshop-mara/static/js/main.c3a3c504.js.map",
     "453.bdb913de.chunk.js.map": "/afroshop-mara/static/js/453.bdb913de.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4aff4624.css",
-    "static/js/main.6c6540cd.js"
+    "static/js/main.c3a3c504.js"
   ]
 }
