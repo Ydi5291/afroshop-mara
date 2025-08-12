@@ -1,10 +1,10 @@
 :root {
   --primary-color: #2c3e50;
-  --accent-color: #4a5568;
+  --accent-color: #0d419b;
   --text-light: #fff;
-  --overlay-bg: rgba(30, 30, 30, 0.45);
-  --btn-bg: rgba(44, 62, 80, 0.92);
-  --btn-bg-hover: #1a232e;
+  --overlay-bg: #0f10f0;
+  --btn-bg: rgba(38, 177, 79, 0.92);
+  --btn-bg-hover: hsl(160, 71%, 49%);
 }
 
 /* Header principal */
@@ -118,7 +118,7 @@
   cursor: pointer;
   font-weight: bold;
   transition: background 0.2s, color 0.2s;
-  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+  box-shadow: 0 2px 8px rgba(109, 160, 42, 0.01);
 }
 
 .header-nav button:hover,
@@ -140,6 +140,7 @@
   }
 
   .header-nav {
+    max-height: 100%;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -152,7 +153,10 @@
     z-index: 5;
     border-radius: 0 0 12px 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-    background: rgba(44, 62, 80, 0.97);
+    background-image: url('../images/ImgLebensmittel/Alloco2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .header-nav.open {
@@ -161,18 +165,18 @@
 
   .header-nav button {
     width: 90%;
-    max-width: 280px;
+    max-width: 150px;
     background: transparent;
     box-shadow: none;
     border-radius: 8px;
     color: #fff;
-    margin: 0.2rem 0;
+    margin: 0.1rem 0;
     transition: background 0.2s, color 0.2s;
   }
 
   .header-nav button:hover,
   .header-nav button:focus {
-    background: #4a5568;
+    background: #11b8af;
     color: #222;
   }
 }
