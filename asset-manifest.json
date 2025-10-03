@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/afroshop-mara/static/css/main.cc1c3949.css",
-    "main.js": "/afroshop-mara/static/js/main.a8e8fa4f.js",
+    "main.css": "/afroshop-mara/static/css/main.d15ebeb0.css",
+    "main.js": "/afroshop-mara/static/js/main.174a5840.js",
     "static/js/453.bdb913de.chunk.js": "/afroshop-mara/static/js/453.bdb913de.chunk.js",
     "static/media/Kerastase.png": "/afroshop-mara/static/media/Kerastase.8a1cb0908785b7c2e91b.png",
     "static/media/Körperpflege.png": "/afroshop-mara/static/media/Körperpflege.b2518919981c5debc1f4.png",
     "static/media/NIDO.jpg": "/afroshop-mara/static/media/NIDO.60efc3eff0b4e4b1f94a.jpg",
     "static/media/Chips2.jpg": "/afroshop-mara/static/media/Chips2.7aab4c1d1d53e508ccde.jpg",
+    "static/media/Afroshop-mara1.jpg": "/afroshop-mara/static/media/Afroshop-mara1.cf36f0228509a69d613e.jpg",
     "static/media/Ignam.jpg": "/afroshop-mara/static/media/Ignam.97a1653320d89a363ccf.jpg",
     "static/media/Avocados.jpg": "/afroshop-mara/static/media/Avocados.08d4b4e2588bcde2e308.jpg",
     "static/media/Getränke.jpg": "/afroshop-mara/static/media/Getränke.a72aedf2aad7235b7ec9.jpg",
@@ -25,12 +26,12 @@
     "static/media/youtube.png": "/afroshop-mara/static/media/youtube.12459a7bf1ccaea661c6.png",
     "static/media/Black-soap.webp": "/afroshop-mara/static/media/Black-soap.aed57257a1091c134f9d.webp",
     "index.html": "/afroshop-mara/index.html",
-    "main.cc1c3949.css.map": "/afroshop-mara/static/css/main.cc1c3949.css.map",
-    "main.a8e8fa4f.js.map": "/afroshop-mara/static/js/main.a8e8fa4f.js.map",
+    "main.d15ebeb0.css.map": "/afroshop-mara/static/css/main.d15ebeb0.css.map",
+    "main.174a5840.js.map": "/afroshop-mara/static/js/main.174a5840.js.map",
     "453.bdb913de.chunk.js.map": "/afroshop-mara/static/js/453.bdb913de.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cc1c3949.css",
-    "static/js/main.a8e8fa4f.js"
+    "static/css/main.d15ebeb0.css",
+    "static/js/main.174a5840.js"
   ]
 }
