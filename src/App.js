@@ -15,6 +15,7 @@ import Schill from './images/ImgLebensmittel/Schill.jpg';
 import KosmetikImg from './images/ImgKosmetik/Kosmetik.jpg';
 import Bissap from './images/ImgDrink/Bissap.png';
 import { useState } from 'react';
+import WelcomeImg from './images/Afroshop-mara1.jpg';
 
 function App() {
   const [page, setPage] = useState('Lebensmittel');
@@ -73,33 +74,23 @@ function App() {
     sectionId = 'agb';
   }
 
-  return (  
+  return (
     <div className="App">
       <Header cart={cart} onNav={setPage} onCartClick={() => setCartOpen(true)} />
 
       {/* Message de bienvenue */}
-      <section className="welcome-section" style={{
-        background: '#f7f7fa',
-        padding: '1.5rem 1rem',
-        margin: '0 auto 1.5rem auto',
-        borderRadius: '10px',
-        maxWidth: '700px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
-        textAlign: 'center',
-        color: '#222',
-        fontFamily: 'inherit',
-      }}>
+      <section className="welcome-section">
         <h1 style={{ color: '#1976d2', marginBottom: '0.5rem', fontSize: '2rem' }}>Herzlich willkommen!</h1>
         <p style={{ fontSize: '1.15rem', margin: 0 }}>
-          <b>Afroshop Mara African & Asian Food</b><br/>
-          <span style={{ color: '#444' }}>Virchowstr 6, 46047 Oberhausen</span><br/>
-          <span style={{ color: '#1976d2', fontWeight: 500 }}>Öffnungszeiten:</span><br/>
-          Montag – Samstag: 10:00 – 20:00 Uhr<br/>
+          <b>Afroshop Mara African & Asian Food</b><br />
+          <span style={{ color: '#444' }}>Virchowstr 6, 46047 Oberhausen</span><br />
+          <span style={{ color: '#1976d2', fontWeight: 500 }}>Öffnungszeiten:</span><br />
+          Montag – Samstag: 10:00 – 20:00 Uhr<br />
           Sonntag: Geschlossen
         </p>
       </section>
 
-      { cartOpen && (  
+      {cartOpen && (
         <Cart cart={cart} onClose={() => setCartOpen(false)} onIncrement={incrementItem} onDecrement={decrementItem} />
       )}
       <main>
@@ -125,10 +116,10 @@ function App() {
           {Content}
         </div>
       </main>
-      
+
       {/* ------ColisChecker------ */}
       <ColisChecker />
-      
+
       <Footer onNav={setPage} />
     </div>
   );
