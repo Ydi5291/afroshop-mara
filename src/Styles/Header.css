@@ -1,182 +1,153 @@
-:root {
-  --primary-color: #2c3e50;
-  --accent-color: #0d419b;
-  --text-light: #fff;
-  --overlay-bg: #0f10f0;
-  --btn-bg: rgba(38, 177, 79, 0.92);
-  --btn-bg-hover: hsl(160, 71%, 49%);
-}
-
 /* Header principal */
 .App-header {
-  height: 450px;
-  padding: 16px 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  font-weight: bold;
-  background-image: url('../images/Afroshop-mara1.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 0% 50%;
-  animation: bgMove 20s linear infinite alternate;
-  position: relative;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(90deg, #232526 0%, #414345 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 0.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+/* logo du header */
+.logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 0.2rem 1.2rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  outline: none;
 }
-
+.logo:hover,
+.logo:focus {
+  background: #fff;
+  color: #232526;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  text-decoration: none;
+}
 /* Actions (panier + burger) */
 .header-actions {
-  position: absolute;
-  top: 18px;
-  right: 18px;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 18px;
-  z-index: 12;
+  justify-content: flex-end;
+  padding: 0 1.5rem;
+  height: 60px;
 }
 
+/* Panier */
 .cart-header {
-  background: var(--btn-bg);
-  color: var(--text-light);
-  border-radius: 50px;
-  padding: 8px 18px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  margin-right: 1.2rem;
+}
+.cart-btn {
+  background: #fff;
+  color: #232526;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s, color 0.2s;
+}
+.cart-btn span {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  background: #d32f2f;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+  justify-content: center;
 }
 
-.cart-header span {
-  margin-left: 6px;
-  font-size: 1.1em;
-  color: var(--accent-color);
-}
-
-/* Bouton burger (mobile) */
+/* Burger menu */
 .burger {
   display: none;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 10;
+  gap: 6px;
+  z-index: 101;
 }
-
 .burger span {
   display: block;
-  width: 28px;
   height: 4px;
-  margin: 4px 0;
-  background: var(--text-light);
+  width: 100%;
+  background: #fff;
   border-radius: 2px;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
-
 .burger.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-  background: #4a5568;
+  transform: translateY(10px) rotate(45deg);
 }
 .burger.open span:nth-child(2) {
   opacity: 0;
 }
 .burger.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-  background: #4a5568;
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 /* Navigation */
 .header-nav {
-  position: absolute;
-  bottom: 24px;
   display: flex;
-  gap: 8px;
-  z-index: 2;
-  transition: all 0.3s;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.5rem 0;
+  background: transparent;
+  transition: max-height 0.3s;
 }
-
 .header-nav button {
-  background: var(--btn-bg);
-  color: var(--text-light);
+  background: none;
   border: none;
-  border-radius: 8px;
-  padding: 11.2px 24px;
-  font-size: 16px;
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 500;
+  padding: 0.4rem 1.1rem;
+  border-radius: 22px;
   cursor: pointer;
-  font-weight: bold;
   transition: background 0.2s, color 0.2s;
-  box-shadow: 0 2px 8px rgba(109, 160, 42, 0.01);
 }
-
 .header-nav button:hover,
 .header-nav button:focus {
-  background: var(--btn-bg-hover);
-  color: var(--accent-color);
+  background: #fff;
+  color: #232526;
 }
 
-/* Unifie le fond du menu mobile */
-@media (max-width: 768px) {
-  .App-header {
-    min-height: 140px;
-    padding: 16px 8px;
-    text-align: center;
-  }
-
-  .burger {
-    display: flex;
-  }
-
+/* Responsive */
+@media (max-width: 900px) {
   .header-nav {
-    max-height: 100%;
-    display: none;
     flex-direction: column;
-    align-items: center;
-    gap: 2px;
+    align-items: flex-start;
+    background: #232526;
     position: absolute;
     top: 60px;
     left: 0;
     right: 0;
-    padding: 8px 0;
-    z-index: 5;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-    background-image: url('../images/ImgLebensmittel/Alloco2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.09);
   }
-
   .header-nav.open {
+    max-height: 400px;
+    padding: 1rem 1.5rem;
+    transition: max-height 0.4s;
+  }
+  .burger {
     display: flex;
-  }
-
-  .header-nav button {
-    width: 90%;
-    max-width: 150px;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 8px;
-    color: #fff;
-    margin: 0.1rem 0;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  .header-nav button:hover,
-  .header-nav button:focus {
-    background: #11b8af;
-    color: #222;
   }
 }

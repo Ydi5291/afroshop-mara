@@ -1,6 +1,7 @@
+/* Footer par défaut : même fond que le body */
 .App-footer {
-  background: linear-gradient(90deg, #232526 0%, #414345 100%);
-  color: #fff;
+  background: inherit;
+  color: inherit;
   padding: 2.2rem 0 0.7rem 0;
   text-align: center;
   font-size: 1rem;
@@ -8,6 +9,13 @@
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
   box-shadow: 0 -2px 16px rgba(0,0,0,0.10);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Au survol : dégradé et texte blanc */
+.App-footer:hover {
+  background: linear-gradient(90deg, #232526 0%, #414345 100%);
+  color: #fff;
 }
 
 .footer-main {

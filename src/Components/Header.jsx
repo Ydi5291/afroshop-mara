@@ -5,10 +5,7 @@ function Header({ onNav, cart = [], onCartClick }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNav = (page) => {
-    // Fermer le menu d'abord
     setMenuOpen(false);
-    
-    // Scroll smooth si la section existe
     const sectionMap = {
       Lebensmittel: 'lebensmittel',
       Kosmetik: 'kosmetik',
@@ -29,7 +26,6 @@ function Header({ onNav, cart = [], onCartClick }) {
         }
       }, 100);
     } else {
-      // Pour les autres pages (Über uns, Kontakt, Impressum, AGB)
       onNav(page);
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -39,21 +35,30 @@ function Header({ onNav, cart = [], onCartClick }) {
 
   return (
     <header className="App-header">
-      <div className="header-actions">
-        <div className="cart-header">
-          <button className="cart-btn" onClick={onCartClick}>
-            🛒 <span>{cart.length}</span>
+      <div className="header-content" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+        <div
+          className="logo"
+          tabIndex={0}
+          onClick={() => handleNav('Lebensmittel')}
+        >
+          Afroshop Mara
+        </div>
+        <div className="header-actions">
+          <div className="cart-header">
+            <button className="cart-btn" onClick={onCartClick}>
+              🛒 <span>{cart.length}</span>
+            </button>
+          </div>
+          <button
+            className={`burger${menuOpen ? ' open' : ''}`}
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label="Menü öffnen/schließen"
+          >
+            <span />
+            <span />
+            <span />
           </button>
         </div>
-        <button
-          className={`burger${menuOpen ? ' open' : ''}`}
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-label="Menü öffnen/schließen"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
       </div>
       <nav className={`header-nav${menuOpen ? ' open' : ''}`}>
         <button onClick={() => handleNav('Lebensmittel')}>Lebensmittel</button>
